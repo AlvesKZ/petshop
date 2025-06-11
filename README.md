@@ -14,10 +14,11 @@ Aplicativo feito com Ionic e Firebase para gerenciar cadastro de pets e cuidador
 git clone https://github.com/AlvesKZ/petshop.git
 
 2. Instale as dependências e inicie o Ionic:
+
 npm install
+
 ionic init
 
-3. Configure o Firebase (adicione suas credenciais no arquivo de ambiente).
+5. Configure o Firebase (adicione suas credenciais no arquivo de ambiente).
 
-4. Execute o app:
-ionic serve
+6. Execute o app: ionic serve
