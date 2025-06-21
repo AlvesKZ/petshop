@@ -52,7 +52,7 @@ export class PetService {
   }
 
   public deletePet(pet: Pet) {
-    const petRef = doc(this.firestore, `pet/${pet.id}`)
+    const petRef = doc(this.firestore, `pets/${pet.id}`)
     return deleteDoc(petRef);
   }
 }
