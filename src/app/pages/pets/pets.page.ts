@@ -7,7 +7,6 @@ import { Router } from '@angular/router';
 import { Pet, PetService } from 'src/app/services/pet.service';
 
 @Component({
-  standalone: true,
   selector: 'app-pets',
   templateUrl: './pets.page.html',
   styleUrls: ['./pets.page.scss'],
@@ -15,7 +14,8 @@ import { Pet, PetService } from 'src/app/services/pet.service';
     IonicModule,
     CommonModule,
     FormsModule
-  ]
+  ],
+  standalone: true,
 })
 export class PetsPage implements OnInit {
   pets: Pet[] = [];
@@ -32,8 +32,12 @@ export class PetsPage implements OnInit {
     });
   }
 
+  addPet() {
+    this.router.navigateByUrl(`/pets/petsDetalhe/`);
+  }
+
   editPet(pet: Pet) {
-    this.router.navigateByUrl(`/pets/detalhe/${pet.id}`);
+    this.router.navigateByUrl(`/pets/petsDetalhe/${pet.id}`);
   }
 
   deletePet(id: string | undefined) {

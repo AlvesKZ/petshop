@@ -7,7 +7,12 @@ const routes: Routes = [
   {
     path: '',
     component: PetsPage
-  }
+  },  {
+    path: 'pet-detalhes',
+    loadChildren: () => import('./pet-detalhes/pet-detalhes.module').then( m => m.PetDetalhesPageModule)
+  },
+
+
 ];
 
 @NgModule({
