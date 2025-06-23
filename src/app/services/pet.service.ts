@@ -51,8 +51,8 @@ export class PetService {
     return updateDoc(petRef, { nome: pet.nome, especie: pet.especie, raca: pet.raca, idade: pet.idade, observacoes: pet.observacoes });
   }
 
-  public deletePet(pet: Pet) {
-    const petRef = doc(this.firestore, `pets/${pet.id}`)
+  public deletePet(id: string) {
+    const petRef = doc(this.firestore, `pets/${id}`)
     return deleteDoc(petRef);
   }
 }

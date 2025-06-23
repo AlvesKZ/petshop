@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>Pets</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-header collapse="condense">
+    <ion-toolbar color="primary">
+      <ion-title size="large">Pets</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-button expand="block" color="success" class="ion-margin-vertical">
+    <ion-icon slot="start" name="add-circle-outline"></ion-icon>
+    Adicionar novo pet
+  </ion-button>
+
+  <ion-list *ngIf="pets.length > 0; else vazio">
+    <ion-item-sliding *ngFor="let pet of pets">
+      <ion-item>
+        <ion-label>
+          <h2>{{ pet.nome }}</h2>
+          <p>{{ pet.especie }} - {{ pet.raca }}</p>
+        </ion-label>
+        <ion-buttons slot="end">
+          <ion-button color="warning" fill="clear" (click)="editPet(pet)">
+            <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+          </ion-button>
+          <ion-button color="danger" fill="clear" (click)="deletePet(pet.id ?? '')">
+            <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
+
+  <ng-template #vazio>
+    <ion-text color="medium">
+      <p class="ion-text-center">Nenhum pet cadastrado.</p>
+    </ion-text>
+  </ng-template>
+</ion-content>
