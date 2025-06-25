@@ -43,8 +43,20 @@ export class PetService {
 
   public addPet(pet: Pet) {
     const petRef = collection(this.firestore, 'pets');
-    return addDoc(petRef, { ...pet, ceratedAt: Date.now() });
+    const data: any = {
+      nome: pet.nome,
+      especie: pet.especie,
+      raca: pet.raca,
+      idade: pet.idade,
+    };
+
+    if (pet.observacoes !== undefined) {
+      data.observacoes = pet.observacoes;
+    }
+
+    return addDoc(petRef, data);
   }
+
 
   public updatePet(pet: Pet) {
     const petRef = doc(this.firestore, `pets/${pet.id}`);

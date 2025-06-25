@@ -33,11 +33,11 @@ export class PetsPage implements OnInit {
   }
 
   addPet() {
-    this.router.navigateByUrl(`/pets/petsDetalhe/`);
+    this.router.navigateByUrl(`/pets/pet-detalhes/`);
   }
 
   editPet(pet: Pet) {
-    this.router.navigateByUrl(`/pets/petsDetalhe/${pet.id}`);
+    this.router.navigateByUrl(`/pets/pet-detalhes/${pet.id}`);
   }
 
   deletePet(id: string | undefined) {

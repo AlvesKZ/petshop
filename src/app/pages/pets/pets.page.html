@@ -11,8 +11,7 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-button expand="block" color="success" class="ion-margin-vertical">
-    <ion-icon slot="start" name="add-circle-outline"></ion-icon>
+  <ion-button expand="block" color="success" class="ion-margin-vertical" (click)="addPet()">
     Adicionar novo pet
   </ion-button>
 
@@ -22,13 +21,14 @@
         <ion-label>
           <h2>{{ pet.nome }}</h2>
           <p>{{ pet.especie }} - {{ pet.raca }}</p>
+          <p *ngIf="pet.observacoes"><strong>Observações:</strong> {{ pet.observacoes }}</p>
         </ion-label>
         <ion-buttons slot="end">
           <ion-button color="warning" fill="clear" (click)="editPet(pet)">
-            <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+            Editar
           </ion-button>
-          <ion-button color="danger" fill="clear" (click)="deletePet(pet.id ?? '')">
-            <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+          <ion-button color="danger" fill="clear" (click)="deletePet(pet.id)">
+            Excluir
           </ion-button>
         </ion-buttons>
       </ion-item>

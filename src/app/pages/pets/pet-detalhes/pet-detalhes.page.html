@@ -1,17 +1,53 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/home"></ion-back-button>
+      <ion-back-button defaultHref="/pets"></ion-back-button>
     </ion-buttons>
-    <ion-title>{{ verificaNovoPet ? "Cadastrar pet" : "Editar pet" }}</ion-title>
+    <ion-title>
+      {{ novoPet ? 'Cadastrar Pet' : 'Editar Pet' }}
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <form #form="ngForm" (ngSubmit)="salvarPet()">
-    <ion-item>
-      <ion-label position="floating">Nome</ion-label>
-      <ion-input type="text" [(ngModel)]="pet.name" name="nome" required></ion-input>
-    </ion-item>
-  </form>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="ion-text-center">
+        {{ novoPet ? 'Novo Pet' : 'Atualizar Dados' }}
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <form #form="ngForm" (ngSubmit)="salvarPet()">
+        <ion-item>
+          <ion-label position="floating">Nome</ion-label>
+          <ion-input type="text" [(ngModel)]="pet.nome" name="nome" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Espécie</ion-label>
+          <ion-input type="text" [(ngModel)]="pet.especie" name="especie" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Raça</ion-label>
+          <ion-input type="text" [(ngModel)]="pet.raca" name="raca" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Idade</ion-label>
+          <ion-input type="number" [(ngModel)]="pet.idade" name="idade" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Observações adicionais</ion-label>
+          <ion-input type="text" [(ngModel)]="pet.observacoes" name="observacoes"></ion-input>
+        </ion-item>
+
+        <ion-button expand="block" color="success" type="submit" class="ion-margin-top" [disabled]="form.invalid">
+          Salvar
+        </ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

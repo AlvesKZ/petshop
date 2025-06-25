@@ -7,13 +7,17 @@ const routes: Routes = [
   {
     path: '',
     component: PetsPage
-  },  {
-    path: 'pet-detalhes',
-    loadChildren: () => import('./pet-detalhes/pet-detalhes.module').then( m => m.PetDetalhesPageModule)
   },
-
-
+  {
+    path: 'pet-detalhes',
+    loadChildren: () => import('./pet-detalhes/pet-detalhes.module').then(m => m.PetDetalhesPageModule)
+  },
+  {
+    path: 'pet-detalhes/:id',
+    loadChildren: () => import('./pet-detalhes/pet-detalhes.module').then(m => m.PetDetalhesPageModule)
+  }
 ];
+
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
