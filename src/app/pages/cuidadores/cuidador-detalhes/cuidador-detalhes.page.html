@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/cuidadores"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      {{ novoCuidador ? 'Cadastrar Cuidador' : 'Editar Cuidador' }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="ion-text-center">
+        {{ novoCuidador ? 'Novo Cuidador' : 'Atualizar Dados' }}
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <form #form="ngForm" (ngSubmit)="salvarCuidador()">
+        <ion-item>
+          <ion-label position="stacked">Nome</ion-label>
+          <ion-input type="text" [(ngModel)]="cuidador.nome" name="nome" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Telefone</ion-label>
+          <ion-input type="tel" [(ngModel)]="cuidador.telefone" name="telefone" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Experiência (anos)</ion-label>
+          <ion-input type="number" [(ngModel)]="cuidador.experiencia" name="experiencia" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Especialidades</ion-label>
+          <ion-input type="text" [(ngModel)]="cuidador.especialidades" name="especialidades" required></ion-input>
+        </ion-item>
+
+        <ion-button expand="block" type="submit" class="ion-margin-top add" [disabled]="form.invalid">
+          Salvar
+        </ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -7,6 +7,14 @@ const routes: Routes = [
   {
     path: '',
     component: CuidadoresPage
+  },
+  {
+    path: 'cuidador-detalhes',
+    loadChildren: () => import('./cuidador-detalhes/cuidador-detalhes.module').then(m => m.CuidadorDetalhesPageModule)
+  },
+  {
+    path: 'cuidador-detalhes/:id',
+    loadChildren: () => import('./cuidador-detalhes/cuidador-detalhes.module').then(m => m.CuidadorDetalhesPageModule)
   }
 ];
 

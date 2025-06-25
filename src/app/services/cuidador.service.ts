@@ -17,7 +17,7 @@ import {
 export interface Cuidador {
   id?: string;
   nome: string;
-  telefone: number;
+  telefone: string;
   experiencia: number;
   especialidades?: string;
 }

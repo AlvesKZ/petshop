@@ -22,43 +22,43 @@ export class CuidadoresPage implements OnInit {
 
   constructor(
     private router: Router,
-    private cuidadorSevice: CuidadorService,
-    private alertContoller: AlertController,
-  ) { }
+    private cuidadorService: CuidadorService,
+    private alertController: AlertController,
+  ) {}
 
   ngOnInit() {
-    this.cuidadorSevice.getCuidadores().subscribe(res => {
+    this.cuidadorService.getCuidadores().subscribe(res => {
       this.cuidadores = res;
     });
   }
 
   addCuidador() {
-    this.router.navigateByUrl(`/cuidadores/cuidadoresDetalhe/`);
+    this.router.navigateByUrl('/cuidadores/cuidador-detalhes');
   }
 
   editCuidador(cuidador: Cuidador) {
-    this.router.navigateByUrl(`/cuidadores/cuidadoresDetalhe/${cuidador.id}`);
+    this.router.navigateByUrl(`/cuidadores/cuidador-detalhes/${cuidador.id}`);
   }
 
   deleteCuidador(id: string | undefined) {
     if (!id) return;
 
-    const alert = this.alertContoller.create({
+    const alert = this.alertController.create({
       header: 'Confirmar exclusão',
       message: 'Tem certeza que deseja excluir este cuidador?',
       buttons: [
         {
           text: 'Cancelar',
           role: 'cancel',
-          cssClass: 'secondary',
+          cssClass: 'secondary'
         },
         {
           text: 'Excluir',
           handler: () => {
-            this.cuidadorSevice.deleteCuidador(id);
+            this.cuidadorService.deleteCuidador(id);
           }
         }
-      ],
+      ]
     });
   }
 }
